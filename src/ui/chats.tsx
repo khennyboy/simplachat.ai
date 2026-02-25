@@ -6,13 +6,14 @@ import {
 
 const Chats = () => {
   return (
-    <div>
+    <div className="space-y-4 mt-4">
       <h4>Conversations</h4>
-      <div className="flex group relative">
+      
+      <div className="flex gap-2 group relative p-3 rounded-md bg-gray-800 transition-all duration-200 ease-linear">
         <ChatBubbleOvalLeftEllipsisIcon />
         <span>New Chat</span>
 
-        <div className="absolute flex group-hover:flex  right-0">
+        <div className="absolute flex gap-1 group-hover:flex right-2">
           <PencilIcon />
           <TrashIcon />
         </div>
