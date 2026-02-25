@@ -7,8 +7,8 @@ const Input = () => {
   return (
     <div
       className={`
-        flex p-4 items-center mx-2 mb-5 bg-chats 
-         rounded-4xl
+        flex p-4 items-center mx-auto mb-5 bg-chats 
+         rounded-4xl w-full max-w-2xl 
         transition-all duration-200 ease-linear
       `}
     >
