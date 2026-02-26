@@ -5,10 +5,10 @@ import SideContent from "../ui/side-content";
 
 const HomePage = () => {
   return (
-    <div className="flex h-screen ">
+    <div className="flex h-screen scrollbar scrollbar-thumb-sky-700 scrollbar-track-sky-300 overflow-y-scroll">
       <OpenSideContent />
       <SideContent />
-      <div className="bg-acive-convo flex flex-col flex-1 overflow-y-auto px-2">
+      <div className="bg-acive-convo flex flex-col flex-1 px-2">
         <Conversation />
         <Input />
       </div>

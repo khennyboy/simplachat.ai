@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@plugin 'tailwind-scrollbar';
+
 @theme {
   --color-main-sidebar: #121212;
   --color-inner-bg: #1e1e1e;
@@ -12,7 +14,7 @@
 
 @layer base {
   svg {
-    @apply size-6 text-blue-700 cursor-pointer;
+    @apply size-6 text-pri-text cursor-pointer;
   }
   body {
     @apply text-pri-text font-sans;

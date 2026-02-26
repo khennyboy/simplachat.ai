@@ -7,9 +7,9 @@ const SideContent = () => {
   return (
     <aside
       className={`
-    bg-chats overflow-hidden
+    bg-chats 
     transition-all duration-300 ease-in-out
-    ${openMenu ? "w-80" : "w-0"}
+    ${openMenu ? "w-80 scrollbar scrollbar-thumb-sky-700 scrollbar-track-sky-300 overflow-y-scroll" : "w-0 overflow-hidden"}
   `}
     >
       <div className="py-4 px-2">

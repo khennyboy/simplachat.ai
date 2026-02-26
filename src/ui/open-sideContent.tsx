@@ -1,10 +1,10 @@
-import { Bars3Icon } from "@heroicons/react/24/outline";
+import { RiMenu3Line } from "react-icons/ri";
 import { UseContext } from "../hooks/useContext";
 
 const OpenSideContent = () => {
   const { openMenu, setOpenMenu } = UseContext();
   return (
-    <Bars3Icon
+    <RiMenu3Line
       className={`fixed top-4 left-4 ${openMenu ? "hidden" : "visible"}`}
       onClick={() => setOpenMenu(true)}
     />

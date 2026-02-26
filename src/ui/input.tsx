@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
+import { VscSend } from "react-icons/vsc";
 
 const Input = () => {
   const [hasText, setHasText] = useState<boolean>(false);
@@ -23,7 +23,7 @@ const Input = () => {
           console.log(hasText);
         }}
       />
-      <PaperAirplaneIcon className="cursor-pointer" />
+      <VscSend className="cursor-pointer" />
     </div>
   );
 };
