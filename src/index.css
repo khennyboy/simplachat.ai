@@ -19,9 +19,9 @@
     @apply size-6 text-pri-text cursor-pointer;
   }
   body {
-    @apply text-pri-text text-[15px] font-inter bg-yellow-500;
+    @apply text-pri-text text-[15px] font-inter font-light;
   }
   html {
-    @apply scrollbar-track-chats scrollbar-thumb-gray-600;
+    @apply scrollbar-track-chats scrollbar-thumb-gray-600 bg-acive-convo;
   }
 }

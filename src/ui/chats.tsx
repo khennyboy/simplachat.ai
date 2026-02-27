@@ -12,7 +12,7 @@ const Chats = () => {
           return (
             <a
               href="#"
-              className="flex gap-2 group relative p-3 rounded-lg bg-gray-800 transition-all duration-200 ease-linear"
+              className="flex gap-2 items-center group relative p-3 rounded-lg bg-gray-800 transition-all duration-200 ease-linear"
               key={index}
             >
               <HiOutlineChat />

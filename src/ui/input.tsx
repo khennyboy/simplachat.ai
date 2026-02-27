@@ -1,19 +1,19 @@
 import { VscSend } from "react-icons/vsc";
 
 type TextFxn = {
-  hasText: boolean;
+  hasText?: boolean;
   setHasText: (value: boolean | ((prev: boolean) => boolean)) => void;
   // setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Input = ({ hasText, setHasText }: TextFxn) => {
+const Input = ({ setHasText }: TextFxn) => {
   return (
     <div
-      className={`${hasText? 'sticky bottom-0 ':''}
+      className="
         flex px-4 py-3 items-center mx-auto mb-5 bg-chats 
-         rounded-4xl w-full max-w-2xl 
-        transition-all duration-200 ease-linear
-      `}
+         rounded-4xl w-11/12 max-w-2xl fixed md:relative bottom-0 
+        transition-all  duration-200 ease-linear 
+      "
     >
       <input
         className="flex-1 outline-none placeholder:text-gray-400"
@@ -22,7 +22,6 @@ const Input = ({ hasText, setHasText }: TextFxn) => {
         placeholder="Ask simplachat.ai anything"
         onChange={(e) => {
           setHasText(e.target.value.trim().length > 0);
-          console.log(hasText);
         }}
       />
       <VscSend className="cursor-pointer" />
