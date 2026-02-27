@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin 'tailwind-scrollbar';
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
 
 @theme {
   --color-main-sidebar: #121212;
@@ -10,6 +11,7 @@
   --color-chats: #121212;
   --color-pri-text: #ffffff;
   --color-sec-text: #bdbdbd;
+  --font-inter: "Inter", sans-serif;
 }
 
 @layer base {
@@ -17,9 +19,9 @@
     @apply size-6 text-pri-text cursor-pointer;
   }
   body {
-    @apply text-pri-text;
+    @apply text-pri-text text-[15px] font-inter;
   }
-  html{
-    @apply scrollbar-track-chats scrollbar-thumb-gray-600 
+  html {
+    @apply scrollbar-track-chats scrollbar-thumb-gray-600;
   }
 }
