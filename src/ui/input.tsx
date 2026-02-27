@@ -10,8 +10,8 @@ const Input = ({ hasText, setHasText }: TextFxn) => {
   return (
     <div
       className={`${hasText? 'sticky bottom-0 ':''}
-        flex p-4 items-center mx-auto mb-5 bg-chats 
-         rounded-4xl w-full max-w-2xl border-2 border-gray-500
+        flex px-4 py-3 items-center mx-auto mb-5 bg-chats 
+         rounded-4xl w-full max-w-2xl 
         transition-all duration-200 ease-linear
       `}
     >

@@ -5,7 +5,7 @@ const OpenSideContent = () => {
   const { openMenu, setOpenMenu } = UseMenuContext();
   return (
     <RiMenu3Line
-      className={`fixed top-8 left-8  ${openMenu ? "hidden" : "visible"}`}
+      className={`fixed top-4 left-4  ${openMenu ? "hidden" : "visible"}`}
       onClick={() => setOpenMenu(true)}
     />
   );
