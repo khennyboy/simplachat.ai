@@ -17,6 +17,9 @@
     @apply size-6 text-pri-text cursor-pointer;
   }
   body {
-    @apply text-pri-text font-sans;
+    @apply text-pri-text;
+  }
+  html{
+    @apply scrollbar-track-chats scrollbar-thumb-gray-600 
   }
 }

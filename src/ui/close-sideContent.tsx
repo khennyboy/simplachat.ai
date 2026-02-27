@@ -1,8 +1,8 @@
 import { IoCloseCircleOutline } from "react-icons/io5";
-import { UseContext } from "../hooks/useContext";
+import { UseMenuContext } from "../hooks/useMenuContext";
 
 const CloseMenu = () => {
-  const { setOpenMenu } = UseContext();
+  const { setOpenMenu } = UseMenuContext();
   return <IoCloseCircleOutline onClick={() => setOpenMenu(false)} className="size-8"/>;
 };
 

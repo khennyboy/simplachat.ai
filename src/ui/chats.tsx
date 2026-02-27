@@ -1,6 +1,6 @@
 import { HiOutlineChat } from "react-icons/hi";
 import { MdOutlineEdit } from "react-icons/md";
-import { RiDeleteBinLine } from "react-icons/ri";
+import { MdDeleteForever } from "react-icons/md";
 
 const Chats = () => {
   return (
@@ -10,18 +10,19 @@ const Chats = () => {
         {" "}
         {Array.from({ length: 10 }, (_, index) => {
           return (
-            <div
-              className="flex gap-2 group relative p-3 rounded-md bg-gray-800 transition-all duration-200 ease-linear"
+            <a
+              href="#"
+              className="flex gap-2 group relative p-3 rounded-lg bg-gray-800 transition-all duration-200 ease-linear"
               key={index}
             >
               <HiOutlineChat />
               <span>New Chat {index}</span>
 
-              <div className="absolute flex gap-2 group-hover:flex right-2">
+              <div className="hidden absolute gap-2 group-hover:flex right-2">
                 <MdOutlineEdit />
-                <RiDeleteBinLine />
+                <MdDeleteForever />
               </div>
-            </div>
+            </a>
           );
         })}
       </div>

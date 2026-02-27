@@ -1,15 +1,15 @@
-import { UseContext } from "../hooks/useContext";
+import { UseMenuContext } from "../hooks/useMenuContext";
 import Chat from "./chats";
 import Logos from "./logos";
 
 const SideContent = () => {
-  const { openMenu } = UseContext();
+  const { openMenu } = UseMenuContext();
   return (
     <aside
       className={`
-    bg-chats 
-    transition-all duration-300 ease-in-out
-    ${openMenu ? "w-80 scrollbar scrollbar-thumb-sky-700 scrollbar-track-sky-300 overflow-y-scroll" : "w-0 overflow-hidden"}
+    bg-chats z-50
+    transition-all duration-300 ease-in-out max-md:fixed left-0 top-0
+    ${openMenu ? "w-80 overflow-y-scroll scrollbar-thin" : "w-0 overflow-hidden"}
   `}
     >
       <div className="py-4 px-2">
