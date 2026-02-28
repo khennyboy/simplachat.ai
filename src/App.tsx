@@ -6,6 +6,15 @@ import {
 } from "react-router-dom";
 import HomePage from "./pages/homepage";
 import MenuProvider from "./context/menu-provider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 0,
+    },
+  },
+});
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,9 +26,10 @@ const router = createBrowserRouter(
 function App() {
   return (
     <>
-    
       <MenuProvider>
-        <RouterProvider router={router} />
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
       </MenuProvider>
     </>
   );

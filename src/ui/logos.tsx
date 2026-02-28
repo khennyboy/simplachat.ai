@@ -12,7 +12,7 @@ const Logos = () => {
         </div>
         <CloseMenu />
       </div>
-      <div className="flex gap-2 items-center rounded-lg px-2 py-3 cursor-pointer border-gray-100/30 border-2">
+      <div className="flex gap-2 items-center rounded-lg p-2  cursor-pointer hover:bg-chat-hover">
         <IoAddCircleSharp />
         <span>New Chat</span>
       </div>

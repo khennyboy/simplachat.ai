@@ -11,15 +11,15 @@
   --color-chats: #121212;
   --color-pri-text: #ffffff;
   --color-sec-text: #bdbdbd;
-  --font-inter: "Inter", sans-serif;
+  --color-chat-hover: #404040;
 }
 
 @layer base {
   svg {
-    @apply size-6 text-pri-text cursor-pointer;
+    @apply size-5 text-slate-300 cursor-pointer;
   }
   body {
-    @apply text-gray-200 text-[15px] font-inter font-light;
+    @apply text-gray-200 text-[14px] font-serif;
   }
   html {
     @apply scrollbar-track-chats scrollbar-thumb-gray-600 bg-acive-convo scroll-smooth;

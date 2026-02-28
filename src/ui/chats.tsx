@@ -6,21 +6,23 @@ const Chats = () => {
   return (
     <div className="space-y-4 mt-4">
       <h4>Conversations</h4>
-      <div className="space-y-2.5">
+      <div className="space-y-0.5">
         {" "}
         {Array.from({ length: 20 }, (_, index) => {
           return (
             <a
               href="#"
-              className="flex gap-2 items-center group relative p-3 rounded-lg bg-gray-800 transition-all duration-200 ease-linear"
+              className="flex gap-2 items-center group relative p-2 transition-all duration-200 ease-linear hover:bg-chat-hover rounded-md"
               key={index}
             >
-              <HiOutlineChat />
-              <span>Lorem ipsum dolor sit amet. {index}</span>
+              <HiOutlineChat className="shrink-0"/>
+              <span className="text-nowrap overflow-hidden text-ellipsis">
+                Lorem ipsum dolor sit amet. {index}
+              </span>
 
-              <div className="hidden absolute gap-2 group-hover:flex right-2 ">
-                <MdOutlineEdit className="text-blue-800 bg-gray-300 rounded-sm "/>
-                <MdDeleteForever className="text-red-600 bg-gray-300 rounded-sm"/>
+              <div className="gap-2  right-2 hidden group-hover:flex">
+                <MdOutlineEdit className="text-blue-800 bg-gray-200 rounded-sm " />
+                <MdDeleteForever className="text-red-600 bg-gray-200 rounded-sm" />
               </div>
             </a>
           );

@@ -3,7 +3,12 @@ import { UseMenuContext } from "../hooks/useMenuContext";
 
 const CloseMenu = () => {
   const { setOpenMenu } = UseMenuContext();
-  return <IoCloseCircleOutline onClick={() => setOpenMenu(false)} className="size-8"/>;
+  return (
+    <IoCloseCircleOutline
+      onClick={() => setOpenMenu(false)}
+      className="size-6"
+    />
+  );
 };
 
 export default CloseMenu;
