@@ -10,13 +10,13 @@ const Input = ({ setHasText }: TextFxn) => {
   return (
     <div
       className="
-        flex px-4 py-3 items-center mx-auto mb-5 bg-chats 
+        flex px-4 py-5 items-center mx-auto mb-5 bg-chats 
          rounded-4xl w-11/12 max-w-2xl fixed md:relative bottom-0 
         transition-all  duration-200 ease-linear 
       "
     >
       <input
-        className="flex-1 outline-none placeholder:text-gray-400"
+        className="flex-1 outline-none placeholder:opacity-80 placeholder:text-base "
         type="text"
         name="question"
         placeholder="Ask simplachat.ai anything"

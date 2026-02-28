@@ -8,7 +8,7 @@ const Chats = () => {
       <h4>Conversations</h4>
       <div className="space-y-2.5">
         {" "}
-        {Array.from({ length: 10 }, (_, index) => {
+        {Array.from({ length: 20 }, (_, index) => {
           return (
             <a
               href="#"
@@ -16,11 +16,11 @@ const Chats = () => {
               key={index}
             >
               <HiOutlineChat />
-              <span>New Chat {index}</span>
+              <span>Lorem ipsum dolor sit amet. {index}</span>
 
-              <div className="hidden absolute gap-2 group-hover:flex right-2">
-                <MdOutlineEdit />
-                <MdDeleteForever />
+              <div className="hidden absolute gap-2 group-hover:flex right-2 ">
+                <MdOutlineEdit className="text-blue-800 bg-gray-300 rounded-sm "/>
+                <MdDeleteForever className="text-red-600 bg-gray-300 rounded-sm"/>
               </div>
             </a>
           );
