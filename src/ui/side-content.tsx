@@ -12,7 +12,7 @@ const SideContent = () => {
     ${openMenu ? "w-60 md:w-70 overflow-y-auto scrollbar-thin scroll-smooth will-change-transform" : "w-0 overflow-hidden"}
   `}
     >
-      <div className="py-4 px-2">
+      <div className="py-6 px-2">
         <Logos />
         <Chat />
       </div>
