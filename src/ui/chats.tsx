@@ -10,8 +10,8 @@ const Chats = () => {
         {" "}
         {Array.from({ length: 20 }, (_, index) => {
           return (
-            <div
-              // href="#"
+            <a
+              href="#"
               className="flex gap-2 items-center group relative p-2 transition-all duration-200 ease-linear hover:bg-chat-hover rounded-md"
               key={index}
             >
@@ -20,11 +20,11 @@ const Chats = () => {
                 Lorem ipsum dolor sit amet. {index}
               </span>
 
-            <div className="gap-2 right-2 flex md:hidden md:group-hover:flex ">
+            <div className="gap-2 right-2  hidden group-hover:flex [@media(hover:none)]:flex ">
                 <MdOutlineEdit className="text-blue-800  rounded-sm " />
                 <MdDeleteForever className="text-red-600 rounded-sm" />
               </div>
-            </div>
+            </a>
           );
         })}
       </div>
