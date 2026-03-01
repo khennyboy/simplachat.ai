@@ -6,7 +6,7 @@ const MainContent = () => {
   const [hasText, setHasText] = useState<boolean>(false);
   return (
     <div
-      className={`flex justify-center items-center gap-5 flex-col flex-1 px-4`}
+      className={`flex justify-center items-center gap-5 flex-col flex-1 px-4 mb-10`}
     >
       <Conversation hasText={hasText} />
       <ChatInput setHasText={setHasText}  />

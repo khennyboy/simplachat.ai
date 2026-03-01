@@ -4,7 +4,7 @@ type ConversationProps = {
 
 const Conversation = ({ hasText }: ConversationProps) => {
   return (
-    <div className={`${hasText ? "flex-1" : ""} `}>
+    <div className={`${hasText ? "flex-1 pb-20" : ""} `}>
       <p
         className={`text-xl text-center tracking-wide ${hasText ? "hidden" : ""}`}
       >
@@ -18,7 +18,7 @@ const Conversation = ({ hasText }: ConversationProps) => {
             commodi placeat quam quidem dolore quia nisi sed. Recusandae
             perferendis nesciunt ea sint eveniet dolorum iste vitae ad veniam!
           </p>
-        ))}
+        ))}has
     </div>
   );
 };
