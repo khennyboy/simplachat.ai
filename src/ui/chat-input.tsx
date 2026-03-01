@@ -33,7 +33,7 @@ const ChatInput = ({ setHasText }: TextFxn) => {
           ref={textareaRef}
           maxRows={8}
           className="
-            bg-transparent w-full hover:bg-red-400
+            bg-transparent w-full 
             outline-none
             resize-none
             text-base

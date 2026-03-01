@@ -1,17 +1,15 @@
 import { useState } from "react";
+import ChatInput from "./chat-input";
 import Conversation from "./conversation";
-import Input from "./chat-input";
 
 const MainContent = () => {
   const [hasText, setHasText] = useState<boolean>(false);
   return (
-    <div className="flex flex-col flex-1 overflow-y-auto">
-      <div
-        className={`${hasText ? "flex-1" : "flex-1 flex items-center justify-center"}`}
-      >
-        <Conversation hasText={hasText} />
-      </div>
-      <Input setHasText={setHasText} />
+    <div
+      className={`flex justify-center items-center gap-5 flex-col overflow-y-auto scrollbar-thin  flex-1 px-4`}
+    >
+      <Conversation hasText={hasText} />
+      <ChatInput setHasText={setHasText}  />
     </div>
   );
 };
