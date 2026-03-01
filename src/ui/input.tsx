@@ -19,27 +19,26 @@ const Input = ({ setHasText }: TextFxn) => {
     >
       <div
         className="
-          flex items-end gap-3
-          bg-chats
+          flex flex-wrap items-center gap-3 
+          bg-chats justify-end
           px-5 py-3
           rounded-3xl
           shadow-sm
           transition-all duration-200
-          focus-within:ring-2 focus-within:ring-border-glow
+          focus-within:ring-2 focus-within:ring-border-glow 
         "
       >
         <TextareaAutosize
+          name="question-box"
           ref={textareaRef}
           maxRows={8}
           className="
-            flex-1
-            bg-transparent
+            bg-transparent w-full
             outline-none
             resize-none
             text-base
             leading-relaxed
-            placeholder:text-gray-400
-            overflow-hidden
+            placeholder:text-gray-400 scrollbar-thin scroll-smooth
           "
           placeholder="Ask simplachat.ai anything"
           onChange={(e) => {
@@ -59,7 +58,7 @@ const Input = ({ setHasText }: TextFxn) => {
             transition
           "
         >
-          <VscSend  />
+          <VscSend />
         </button>
       </div>
     </div>
