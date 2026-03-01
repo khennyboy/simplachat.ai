@@ -13,15 +13,15 @@ const ChatInput = ({ setHasText }: TextFxn) => {
   return (
     <div
       className="
-        w-11/12 max-w-2xl mx-auto mb-5
-        fixed md:relative bottom-0
+        w-11/12 max-w-2xl mx-auto 
+        fixed md:relative bottom-4
       "
     >
       <div
         className="
           flex flex-wrap items-center gap-3 
           bg-chats justify-end
-          px-5 py-3
+          px-5 py-3 
           rounded-3xl
           shadow-sm
           transition-all duration-200

@@ -4,7 +4,7 @@ type ConversationProps = {
 
 const Conversation = ({ hasText }: ConversationProps) => {
   return (
-    <div className={`${hasText ? "flex-1" : ""}`}>
+    <div className={`${hasText ? "flex-1" : ""} `}>
       <p
         className={`text-xl text-center tracking-wide ${hasText ? "hidden" : ""}`}
       >
