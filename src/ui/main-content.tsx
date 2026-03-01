@@ -6,10 +6,14 @@ const MainContent = () => {
   const [hasText, setHasText] = useState<boolean>(false);
   return (
     <div
-      className="flex justify-center items-center gap-5 flex-col overflow-y-auto scrollbar-thin flex-1 px-4"
+      className={`flex flex-col gap-5 flex-1 px-4 scrollbar-thin ${
+        hasText
+          ? "justify-start overflow-y-auto"
+          : "justify-center overflow-y-hidden"
+      } items-center`}
     >
       <Conversation hasText={hasText} />
-      <Input setHasText={setHasText}  />
+      <Input setHasText={setHasText} />
     </div>
   );
 };

@@ -4,7 +4,7 @@ import SideContent from "../ui/side-content";
 
 const HomePage = () => {
   return (
-    <div className="flex">
+    <div className="flex h-screen">
       <OpenSideContent />
       <SideContent />
       <MainContent />
