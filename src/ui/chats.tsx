@@ -12,7 +12,7 @@ const Chats = () => {
           return (
             <a
               href="#"
-              className="active:bg-chat-hover flex gap-2 items-center group relative p-2 transition-all duration-200 ease-linear hover:bg-chat-hover rounded-md"
+              className=" flex gap-2 items-center group relative p-2 transition-all duration-200 ease-linear hover:bg-chat-hover rounded-md"
               key={index}
             >
               <HiOutlineChat className="shrink-0"/>

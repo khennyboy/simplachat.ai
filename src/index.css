@@ -24,4 +24,7 @@
   html {
     @apply scrollbar-track-chats scrollbar-thumb-gray-600 bg-acive-convo scroll-smooth;
   }
+  a:active{
+    @apply bg-chat-hover
+  }
 }
