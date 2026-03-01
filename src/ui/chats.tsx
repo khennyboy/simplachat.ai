@@ -10,8 +10,8 @@ const Chats = () => {
         {" "}
         {Array.from({ length: 20 }, (_, index) => {
           return (
-            <a
-              href="#"
+            <div
+              // href="#"
               className="flex gap-2 items-center group relative p-2 transition-all duration-200 ease-linear hover:bg-chat-hover rounded-md"
               key={index}
             >
@@ -24,7 +24,7 @@ const Chats = () => {
                 <MdOutlineEdit className="text-blue-800  rounded-sm " />
                 <MdDeleteForever className="text-red-600 rounded-sm" />
               </div>
-            </a>
+            </div>
           );
         })}
       </div>
