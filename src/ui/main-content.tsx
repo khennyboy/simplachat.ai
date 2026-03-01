@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Conversation from "./conversation";
-import Input from "./input";
+import Input from "./chat-input";
 
 const MainContent = () => {
   const [hasText, setHasText] = useState<boolean>(false);

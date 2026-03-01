@@ -7,7 +7,7 @@ type TextFxn = {
   setHasText: (value: boolean | ((prev: boolean) => boolean)) => void;
 };
 
-const Input = ({ setHasText }: TextFxn) => {
+const ChatInput = ({ setHasText }: TextFxn) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   return (
@@ -65,4 +65,4 @@ const Input = ({ setHasText }: TextFxn) => {
   );
 };
 
-export default Input;
+export default ChatInput;
