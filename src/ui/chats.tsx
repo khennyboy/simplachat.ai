@@ -20,7 +20,7 @@ const Chats = () => {
                 Lorem ipsum dolor sit amet. {index}
               </span>
 
-            <div className="gap-2 right-2  hidden group-hover:flex [@media(hover:none)]:flex ">
+            <div className="gap-2 right-2 hidden group-hover:flex [@media(hover:none)]:flex ">
                 <MdOutlineEdit className="text-blue-800  rounded-sm " />
                 <MdDeleteForever className="text-red-600 rounded-sm" />
               </div>
