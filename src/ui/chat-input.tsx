@@ -37,8 +37,8 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
                 bg-transparent w-full
                 outline-none
                 resize-none
-                text-base py-3 break-all 
-                leading-relaxed
+                text-base py-4 break-all 
+                leading-relaxed placeholder:text-sm
                 placeholder:text-gray-400 scrollbar-thin scroll-smooth
               "
             placeholder="Ask simplachat.ai anything"
