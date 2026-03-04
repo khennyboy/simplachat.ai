@@ -8,6 +8,7 @@ import HomePage from "./pages/homepage";
 import MenuProvider from "./context/menu-provider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ChakraProvider } from "@chakra-ui/react";
+import { Theme } from "@chakra-ui/react";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,7 +29,7 @@ function App() {
   return (
     <>
       <MenuProvider>
-        {/* <ChakraProvider> */}
+        {/* <ChakraProvider theme={Theme}> */}
           <QueryClientProvider client={queryClient}>
             <RouterProvider router={router} />
           </QueryClientProvider>
