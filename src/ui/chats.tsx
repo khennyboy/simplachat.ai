@@ -4,7 +4,7 @@ import { MdDeleteForever } from "react-icons/md";
 
 const Chats = () => {
   return (
-    <div className="space-y-0.5 ">
+    <div className="space-y-0.5 pb-20">
       {" "}
       {Array.from({ length: 20 }, (_, index) => {
         return (

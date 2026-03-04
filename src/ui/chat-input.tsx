@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { VscSend } from "react-icons/vsc";
 import TextareaAutosize from "react-textarea-autosize";
 
@@ -11,6 +11,7 @@ type TextFxn = {
 const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const divareaRef = useRef<HTMLDivElement>(null);
+  const [multiline, setMultiline] = useState<boolean>(false);
 
   return (
     <div
@@ -18,17 +19,15 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
       className={`w-full bg-acive-convo px-5 max-md:px-2 left-0 bottom-0 py-5 ${hasText ? "fixed" : "static"} max-md:fixed
        `}
     >
-      <div className="w-full max-w-2xl mx-auto">
+      <div className="w-full max-w-2xl mx-auto ">
         <div
-          className="
-              flex items-center gap-3
-              bg-chats justify-between
+          className={`flex items-center 
+              bg-chats 
               px-5
               rounded-4xl
               shadow-sm
               transition-all duration-200
-              focus-within:ring-2 focus-within:ring-border-glow
-            "
+               ${multiline ? "flex-wrap justify-end gap-0 py-1" : "justify-between gap-3"}`}
         >
           <TextareaAutosize
             name="question-box"
@@ -38,14 +37,14 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
                 bg-transparent w-full
                 outline-none
                 resize-none
-                text-base py-4
+                text-base py-4 break-all 
                 leading-relaxed
                 placeholder:text-gray-400 scrollbar-thin scroll-smooth
               "
             placeholder="Ask simplachat.ai anything"
             onChange={(e) => {
-              const value = e.target.value.trim();
-              const hasContent = value.length > 0;
+              const hasContent = e.target.value.trim().length > 0;
+              setMultiline(e.target.offsetHeight > 58);
               setHasText(hasContent);
               const height = divareaRef.current?.offsetHeight || 0;
               if (hasContent) {
@@ -57,7 +56,7 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
           />
           <button
             className="
-                flex items-center justify-center
+                flex items-center justify-center 
                 h-10 w-10 shrink-0
                 rounded-full
                 bg-user-bubble
@@ -70,6 +69,7 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
             <VscSend />
           </button>
         </div>
+        <p className="text-center mt-1">Simplechat-ai powered by chatGpt</p>
       </div>
     </div>
   );

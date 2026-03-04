@@ -10,7 +10,7 @@ const SideContent = () => {
     <aside
       ref={sideRef}
       className={`
-     z-50 h-screen scrollbar-thin scroll-smooth fixed overflow-y-auto bg-chats pb-10
+     z-50 h-screen scrollbar-thin scroll-smooth fixed overflow-y-auto bg-chats 
     transition-all duration-300 ease-in-out left-0 top-0
     ${openMenu ? "w-60 md:w-70 " : "w-0 overflow-hidden"}
   `}
