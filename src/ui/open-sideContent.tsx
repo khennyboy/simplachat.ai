@@ -4,10 +4,16 @@ import { UseMenuContext } from "../hooks/useMenuContext";
 const OpenSideContent = () => {
   const { openMenu, setOpenMenu } = UseMenuContext();
   return (
-    <RiMenu3Line
-      className={`fixed top-4 left-4  ${openMenu ? "hidden" : "visible"}`}
-      onClick={() => setOpenMenu(true)}
-    />
+    <div
+      className={`fixed top-4 left-4  ${openMenu ? "hidden" : "visible"}  bg-user-bubble p-1.5 rounded-md`}
+    >
+      <RiMenu3Line
+        onClick={(e) => {
+          e.stopPropagation();
+          setOpenMenu(true);
+        }}
+      />
+    </div>
   );
 };
 

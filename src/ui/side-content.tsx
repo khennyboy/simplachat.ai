@@ -1,21 +1,22 @@
 import { UseMenuContext } from "../hooks/useMenuContext";
+import UseOutsideClick from "../hooks/useOutsideClick";
 import Chat from "./chats";
 import Logos from "./logos";
 
 const SideContent = () => {
   const { openMenu } = UseMenuContext();
+  const  sideRef  = UseOutsideClick();
   return (
     <aside
+      ref={sideRef}
       className={`
-    bg-chats z-50 h-screen
-    transition-all duration-300 ease-in-out max-md:fixed left-0 top-0
-    ${openMenu ? "w-60 md:w-70 overflow-y-auto h-screen scrollbar-thin scroll-smooth " : "w-0 overflow-hidden"}
+     z-50 h-screen scrollbar-thin scroll-smooth fixed overflow-y-auto bg-chats pb-10
+    transition-all duration-300 ease-in-out left-0 top-0
+    ${openMenu ? "w-60 md:w-70 " : "w-0 overflow-hidden"}
   `}
     >
-      <div className="py-8  px-2 ">
-        <Logos />
-        <Chat />
-      </div>
+      <Logos />
+      <Chat />
     </aside>
   );
 };
