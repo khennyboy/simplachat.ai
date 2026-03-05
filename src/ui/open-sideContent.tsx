@@ -5,10 +5,10 @@ const OpenSideContent = () => {
   const { openMenu, setOpenMenu } = UseMenuContext();
   return (
     <div
-      className={`fixed top-3 left-2  ${openMenu ? "hidden" : "visible"}  bg-acive-convo p-1.5`}
+      className={`fixed top-0 left-0 ${openMenu ? "hidden" : "visible"} w-full bg-acive-convo py-2 `}
     >
       <RiMenu3Line
-        className="size-7"
+        className="size-7 ml-2"
         onClick={(e) => {
           e.stopPropagation();
           setOpenMenu(true);
