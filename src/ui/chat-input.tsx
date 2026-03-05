@@ -17,9 +17,9 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
   return (
     <div
       ref={divareaRef}
-      className={`w-full  bg-active-convo left-0 bottom-0 py-5 ${hasText ? `fixed ${openMenu ? "max-md:pl-0 pl-60 md:pl-70" : ""}` : "static pl-0"} max-md:fixed }`}
+      className={`w-full  bg-active-convo left-0 bottom-0 pb-2 pt-4 ${hasText ? `fixed ${openMenu ? "max-md:pl-0 pl-60 md:pl-70" : ""}` : "static pl-0"} max-md:fixed }`}
     >
-      <div className="max-w-2xl w-full mx-auto px-5 md:px-2">
+      <div className="max-w-2xl w-full mx-auto px-2 md:px-5">
         <div
           ref={maindivRef}
           className={`flex items-center 
