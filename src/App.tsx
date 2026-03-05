@@ -7,7 +7,7 @@ import {
 import HomePage from "./pages/homepage";
 import MenuProvider from "./context/menu-provider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Provider } from "./components/ui/provider";
+// import { Provider } from "./components/ui/provider";
 // import { ChakraProvider } from "@chakra-ui/react";
 // import { Theme } from "@chakra-ui/react";
 
