@@ -30,11 +30,11 @@ function App() {
   return (
     <>
       <MenuProvider>
-        <Provider>
+        {/* <Provider> */}
           <QueryClientProvider client={queryClient}>
             <RouterProvider router={router} />
           </QueryClientProvider>
-        </Provider>
+        {/* </Provider> */}
       </MenuProvider>
     </>
   );
