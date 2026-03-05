@@ -13,7 +13,7 @@ const MainContent = () => {
       className={`px-5 max-md:px-2  ${openMenu ? "max-md:ml-0 ml-60 md:ml-70" : ""}`}
     >
       <div
-        className={`w-full md:max-w-2xl mx-auto ${hasText ? "pt-12 " : "h-lvh flex-col flex items-center justify-center pt-0 "}`}
+        className={`w-full md:max-w-2xl mx-auto ${hasText ? "pt-12 " : "h-dvh flex-col flex items-center justify-center pt-0 "}`}
         style={{ paddingBottom: padValue }}
       >
         <Conversation hasText={hasText} />
