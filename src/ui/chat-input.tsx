@@ -28,7 +28,7 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
               shadow-sm mx-auto
               transition-all duration-200
               
-               ${multiline ? "flex-wrap justify-end gap-0 py-1" : "justify-between gap-3"}`}
+               ${multiline ? "flex items-center flex-wrap justify-end gap-0 py-1" : "flex items-centerjustify-between gap-3"}`}
         >
           <TextareaAutosize
             name="question-box"
@@ -50,6 +50,7 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
               if (hasContent) {
                 setPaddingValue(height + 100 + "px");
               } else {
+                setMultiline(false);
                 setPaddingValue("0px");
               }
             }}
@@ -76,5 +77,3 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
 };
 
 export default ChatInput;
-
-
