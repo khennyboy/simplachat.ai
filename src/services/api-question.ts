@@ -1,25 +1,23 @@
-export async function getChatbotResponse(question: string) {
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    //   Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-    },
-    body: JSON.stringify({
-      model: "gpt-4o-mini", // modern lightweight model
-      messages: [
-        { role: "system", content: "You are a helpful assistant." },
-        { role: "user", content: question },
-      ],
-      max_tokens: 150,
-    }),
-  });
+export async function getAIResponse(prompt: string) {
+  const response = await fetch(
+    "https://api-inference.huggingface.co/models/DialoGPT/chat",
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_HF_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        messages: [
+          { role: "system", content: "You are a helpful assistant." },
+          { role: "user", content: prompt },
+        ],
+      }),
+    }
 
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.error?.message || "Something went wrong");
-  }
+  );
 
   const data = await response.json();
-  return data.choices[0].message.content.trim();
+
+  return data[0]?.generated_text || "No response";
 }

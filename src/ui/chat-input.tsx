@@ -76,3 +76,5 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
 };
 
 export default ChatInput;
+
+
