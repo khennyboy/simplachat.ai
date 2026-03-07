@@ -44,7 +44,11 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
             placeholder="Ask simplachat.ai anything"
             onChange={(e) => {
               const hasContent = e.target.value.trim().length > 0;
-              setMultiline((maindivRef.current?.offsetHeight || 1) > 56);
+              setTimeout(
+                () =>
+                  setMultiline((maindivRef.current?.offsetHeight || 1) > 56),
+                100,
+              );
               setHasText(hasContent);
               const height = divareaRef.current?.offsetHeight || 0;
               if (hasContent) {
