@@ -1,12 +1,17 @@
 import { Menu, Portal } from "@chakra-ui/react";
+import { useState } from "react";
 import { HiOutlineChat } from "react-icons/hi";
 import { IoEllipsisHorizontal } from "react-icons/io5";
 import { MdDeleteForever, MdOutlineEdit } from "react-icons/md";
 
 const Chats = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
     <div className="space-y-0.5 pb-20">
       {Array.from({ length: 20 }, (_, index) => {
+        const isOpen = openIndex === index;
+
         return (
           <a
             href="#"
@@ -19,8 +24,15 @@ const Chats = () => {
               Lorem ipsum dolor sit amet. {index}
             </span>
 
-            <Menu.Root>
-              <div className="opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100">
+            <Menu.Root
+              open={isOpen}
+              onOpenChange={(e) => setOpenIndex(e.open ? index : null)}
+            >
+              <div
+                className={`group-hover:opacity-100 [@media(hover:none)]:opacity-100 ${
+                  isOpen ? "opacity-100" : "opacity-0"
+                }`}
+              >
                 <Menu.Trigger asChild>
                   <IoEllipsisHorizontal />
                 </Menu.Trigger>
@@ -28,20 +40,25 @@ const Chats = () => {
 
               <Portal>
                 <Menu.Positioner>
-                  <Menu.Content>
+                  <Menu.Content
+                    unstyled
+                    className="bg-gray-700 py-1  px-1 shadow-xl z-50 rounded-md w-26 *:hover:bg-gray-800 *:hover:rounded-md"
+                  >
                     <Menu.Item
                       value="edit-btn"
-                      className="flex items-center gap-2 px-3 py-2 hover:bg-blue-600 hover:text-white"
+                      unstyled
+                      className="flex items-center gap-1 py-1.5 "
                     >
-                      <MdOutlineEdit className="text-white" />
+                      <MdOutlineEdit className="text-blue-600" />
                       <span>Edit</span>
                     </Menu.Item>
 
                     <Menu.Item
                       value="delete-btn"
-                      className="flex items-center gap-2 px-3 py-2 hover:bg-red-600 hover:text-white"
+                      unstyled
+                      className="flex items-center gap-1  py-1.5"
                     >
-                      <MdDeleteForever className="text-white" />
+                      <MdDeleteForever className="text-red-600" />
                       <span>Delete</span>
                     </Menu.Item>
                   </Menu.Content>
