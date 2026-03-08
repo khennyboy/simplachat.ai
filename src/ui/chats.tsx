@@ -1,19 +1,16 @@
-import { useEffect } from "react";
 import { HiOutlineChat } from "react-icons/hi";
-import { MdOutlineEdit } from "react-icons/md";
-import { MdDeleteForever } from "react-icons/md";
-import { getAIResponse } from "../services/api-question";
+import { MdDeleteForever, MdOutlineEdit } from "react-icons/md";
 
 const Chats = () => {
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await getAIResponse("is nigeria a country");
-      console.log(response);
-    }
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await sendPromptToLlama("is nigeria a country");
+  //     console.log(response);
+  //   }
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   return (
     <div className="space-y-0.5 pb-20">

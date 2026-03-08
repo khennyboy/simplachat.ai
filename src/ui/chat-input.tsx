@@ -28,7 +28,7 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
               shadow-sm mx-auto
               transition-all duration-200
               
-               ${multiline ? "flex items-center flex-wrap justify-end gap-0 py-1" : "flex items-centerjustify-between gap-3"}`}
+               ${multiline ? "flex items-center flex-wrap justify-end gap-0 py-1" : "flex items-center justify-between gap-3"}`}
         >
           <TextareaAutosize
             name="question-box"
@@ -44,11 +44,7 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
             placeholder="Ask simplachat.ai anything"
             onChange={(e) => {
               const hasContent = e.target.value.trim().length > 0;
-              setTimeout(
-                () =>
-                  setMultiline((maindivRef.current?.offsetHeight || 1) > 56),
-                100,
-              );
+              setMultiline((maindivRef.current?.offsetHeight || 1) > 56);
               setHasText(hasContent);
               const height = divareaRef.current?.offsetHeight || 0;
               if (hasContent) {
@@ -56,6 +52,7 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
               } else {
                 setMultiline(false);
                 setPaddingValue("0px");
+                console.log(hasContent);
               }
             }}
           />

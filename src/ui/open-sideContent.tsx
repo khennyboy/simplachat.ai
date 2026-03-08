@@ -5,7 +5,7 @@ const OpenSideContent = () => {
   const { openMenu, setOpenMenu } = UseMenuContext();
   return (
     <div
-      className={`fixed top-0 left-0 ${openMenu ? "hidden" : "visible"} w-full bg-acive-convo py-2 `}
+      className={`fixed top-0 left-0 ${openMenu ? "hidden" : "visible"} w-full bg-active-convo py-2 `}
     >
       <RiMenu3Line
         className="size-7 ml-2"
