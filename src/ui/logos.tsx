@@ -4,7 +4,7 @@ import CloseMenu from "./close-sideContent";
 
 const Logos = () => {
   return (
-    <div className="space-y-4 bg-inherit sticky top-0 z-50 px-3 py-4">
+    <div className="space-y-4 bg-inherit sticky top-0 z-50 p-4 ">
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-1.5 ">
           <LuMessageCircleCode />
