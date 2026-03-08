@@ -1,17 +1,9 @@
+import { Menu, Portal } from "@chakra-ui/react";
 import { HiOutlineChat } from "react-icons/hi";
+import { IoEllipsisHorizontal } from "react-icons/io5";
 import { MdDeleteForever, MdOutlineEdit } from "react-icons/md";
 
 const Chats = () => {
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const response = await sendPromptToLlama("is nigeria a country");
-  //     console.log(response);
-  //   }
-
-  //   fetchData();
-  // }, []);
-
   return (
     <div className="space-y-0.5 pb-20">
       {Array.from({ length: 20 }, (_, index) => {
@@ -27,10 +19,35 @@ const Chats = () => {
               Lorem ipsum dolor sit amet. {index}
             </span>
 
-            <div className="gap-2 right-2 hidden group-hover:flex [@media(hover:none)]:flex">
-              <MdOutlineEdit className="text-blue-800 rounded-sm" />
-              <MdDeleteForever className="text-red-600 rounded-sm" />
-            </div>
+            <Menu.Root>
+              <div className="opacity-0 group-hover:opacity-100 [@media(hover:none)]:opacity-100">
+                <Menu.Trigger asChild>
+                  <IoEllipsisHorizontal />
+                </Menu.Trigger>
+              </div>
+
+              <Portal>
+                <Menu.Positioner>
+                  <Menu.Content>
+                    <Menu.Item
+                      value="edit-btn"
+                      className="flex items-center gap-2 px-3 py-2 hover:bg-blue-600 hover:text-white"
+                    >
+                      <MdOutlineEdit className="text-white" />
+                      <span>Edit</span>
+                    </Menu.Item>
+
+                    <Menu.Item
+                      value="delete-btn"
+                      className="flex items-center gap-2 px-3 py-2 hover:bg-red-600 hover:text-white"
+                    >
+                      <MdDeleteForever className="text-white" />
+                      <span>Delete</span>
+                    </Menu.Item>
+                  </Menu.Content>
+                </Menu.Positioner>
+              </Portal>
+            </Menu.Root>
           </a>
         );
       })}
