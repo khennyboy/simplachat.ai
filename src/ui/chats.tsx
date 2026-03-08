@@ -15,7 +15,7 @@ const Chats = () => {
         return (
           <a
             href="#"
-            className="flex gap-2 items-center group relative p-2 transition-all duration-200 ease-linear rounded-md"
+            className="flex gap-2 items-center group relative py-2 px-3 transition-all duration-200 ease-linear rounded-md"
             key={index}
           >
             <HiOutlineChat className="shrink-0" />
@@ -42,7 +42,7 @@ const Chats = () => {
                 <Menu.Positioner>
                   <Menu.Content
                     unstyled
-                    className="bg-gray-700 py-1  px-1 shadow-xl z-50 rounded-md w-26 *:hover:bg-gray-800 *:hover:rounded-md"
+                    className="outline-none bg-gray-700 py-1  px-1 shadow-xl z-50 rounded-md w-26 *:hover:bg-gray-800 *:hover:rounded-md"
                   >
                     <Menu.Item
                       value="edit-btn"
