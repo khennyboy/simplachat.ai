@@ -15,7 +15,7 @@ const Chats = () => {
         return (
           <a
             href="#"
-            className="flex gap-2 items-center group relative py-2 px-4 transition-all duration-200 ease-linear rounded-md"
+            className="flex gap-4 items-center group relative py-2 px-4 transition-all duration-200 ease-linear rounded-md"
             key={index}
           >
             <HiOutlineChat className="shrink-0" />
@@ -23,49 +23,48 @@ const Chats = () => {
             <span className="text-nowrap overflow-hidden text-ellipsis">
               Lorem ipsum dolor sit amet. {index}
             </span>
-            <div className=" px-4 ">
-              <Menu.Root
-                open={isOpen}
-                onOpenChange={(e) => setOpenIndex(e.open ? index : null)}
+
+            <Menu.Root
+              open={isOpen}
+              onOpenChange={(e) => setOpenIndex(e.open ? index : null)}
+            >
+              <div
+                className={`group-hover:opacity-100 [@media(hover:none)]:opacity-100 ${
+                  isOpen ? "opacity-100" : "opacity-0"
+                }`}
               >
-                <div
-                  className={`group-hover:opacity-100 [@media(hover:none)]:opacity-100 ${
-                    isOpen ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <Menu.Trigger asChild>
-                    <IoEllipsisHorizontal />
-                  </Menu.Trigger>
-                </div>
+                <Menu.Trigger asChild>
+                  <IoEllipsisHorizontal />
+                </Menu.Trigger>
+              </div>
 
-                <Portal>
-                  <Menu.Positioner>
-                    <Menu.Content
+              <Portal>
+                <Menu.Positioner>
+                  <Menu.Content
+                    unstyled
+                    className="outline-none bg-[#484848] py-1  px-1 shadow-xl z-50 rounded-md w-26 *:hover:bg-[#303030] *:hover:rounded-md"
+                  >
+                    <Menu.Item
+                      value="edit-btn"
                       unstyled
-                      className="outline-none bg-[#484848] py-1  px-1 shadow-xl z-50 rounded-md w-26 *:hover:bg-[#303030] *:hover:rounded-md"
+                      className="flex items-center gap-1 py-1.5 "
                     >
-                      <Menu.Item
-                        value="edit-btn"
-                        unstyled
-                        className="flex items-center gap-1 py-1.5 "
-                      >
-                        <MdOutlineEdit className="text-blue-600" />
-                        <span>Edit</span>
-                      </Menu.Item>
+                      <MdOutlineEdit className="text-blue-600" />
+                      <span>Edit</span>
+                    </Menu.Item>
 
-                      <Menu.Item
-                        value="delete-btn"
-                        unstyled
-                        className="flex items-center gap-1  py-1.5"
-                      >
-                        <MdDeleteForever className="text-red-600" />
-                        <span>Delete</span>
-                      </Menu.Item>
-                    </Menu.Content>
-                  </Menu.Positioner>
-                </Portal>
-              </Menu.Root>
-            </div>
+                    <Menu.Item
+                      value="delete-btn"
+                      unstyled
+                      className="flex items-center gap-1  py-1.5"
+                    >
+                      <MdDeleteForever className="text-red-600" />
+                      <span>Delete</span>
+                    </Menu.Item>
+                  </Menu.Content>
+                </Menu.Positioner>
+              </Portal>
+            </Menu.Root>
           </a>
         );
       })}
