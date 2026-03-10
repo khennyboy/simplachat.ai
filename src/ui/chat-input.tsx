@@ -9,10 +9,10 @@ import { useParams } from "react-router-dom";
 type TextFxn = {
   hasText?: boolean;
   setHasText: (value: boolean | ((prev: boolean) => boolean)) => void;
-  setPaddingValue: (value: string | ((prev: string) => string)) => void;
+  setPaddingValue?: (value: string | ((prev: string) => string)) => void;
 };
 
-const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
+const ChatInput = ({ setHasText, hasText }: TextFxn) => {
   const maindivRef = useRef<HTMLDivElement>(null);
   const divareaRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -49,6 +49,7 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
               setMultiline((maindivRef.current?.offsetHeight || 1) > 56);
               setHasText(hasContent);
               const height = divareaRef.current?.offsetHeight || 0;
+              console.log(height);
               if (hasContent) {
                 // setPaddingValue(height + 100 + "px");
               } else {

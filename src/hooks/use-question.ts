@@ -1,5 +1,4 @@
 import { useMutation } from "@tanstack/react-query";
-import { sendPromptToLlama } from "../services/question";
 
 const useQuestion = () => {
   const {
