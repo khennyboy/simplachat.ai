@@ -19,7 +19,7 @@
     @apply size-5 text-slate-300;
   }
   body {
-    @apply bg-active-convo font-serif text-gray-200;
+    @apply bg-active-convo font-serif text-sm text-gray-200;
   }
   html {
     @apply scrollbar-track-chats scrollbar-thumb-gray-600 scrollbar-thin scroll-smooth;

@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { VscSend } from "react-icons/vsc";
 import TextareaAutosize from "react-textarea-autosize";
-import { UseMenuContext } from "../hooks/useMenuContext";
-import useQuestion from "../hooks/useQuestion";
+import { UseMenuContext } from "../hooks/use-menu-context";
+import useQuestion from "../hooks/use-question";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { useParams } from "react-router-dom";
 
 type TextFxn = {
   hasText?: boolean;
@@ -16,7 +17,8 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
   const divareaRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const [multiline, setMultiline] = useState<boolean | undefined>(false);
-  const { isPending } = useQuestion();
+  const { isPending, getAnswer } = useQuestion();
+  const { conversationId } = useParams();
 
   const { openMenu } = UseMenuContext();
 
@@ -29,9 +31,9 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
   return (
     <div
       ref={divareaRef}
-      className={`bg-active-convo bottom-0 left-0 w-full pt-4 pb-3 ${hasText ? `fixed ${openMenu ? "pl-60 max-md:pl-0 md:pl-70" : ""}` : "static pl-0"} } max-md:fixed`}
+      className={`bg-active-convo bottom-0 left-0 w-full pt-4 pb-3 ${hasText || conversationId ? `fixed ${openMenu ? "pl-60 max-md:pl-0 md:pl-70" : ""}` : "static pl-0"} } max-md:fixed`}
     >
-      <div className="mx-auto w-full max-w-2xl px-2 md:px-5">
+      <div className="mx-auto w-full max-w-3xl px-2 md:px-5">
         <div
           ref={maindivRef}
           className={`bg-chats mx-auto flex w-full items-center rounded-4xl px-5 shadow-sm transition-all duration-200 ${multiline ? "flex flex-wrap items-center justify-end gap-0 py-1" : "flex items-center justify-between gap-3"}`}
@@ -48,16 +50,17 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
               setHasText(hasContent);
               const height = divareaRef.current?.offsetHeight || 0;
               if (hasContent) {
-                setPaddingValue(height + 100 + "px");
+                // setPaddingValue(height + 100 + "px");
               } else {
                 setMultiline(false);
-                setPaddingValue("0px");
+                // setPaddingValue("0px");
               }
             }}
           />
           <button
             onClick={() => {
               // getAnswer(inputRef.current?.value || "");
+              getAnswer();
               console.log("hello");
             }}
             disabled={!hasText || isPending}

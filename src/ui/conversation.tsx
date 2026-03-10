@@ -1,28 +1,35 @@
-type ConversationProps = {
-  hasText: boolean;
+type Message = {
+  id: number;
+  text: string;
+  sender: "user" | "ai";
 };
 
-const Conversation = ({ hasText }: ConversationProps) => {
+const messages: Message[] = [
+  { id: 1, text: "Hi there!", sender: "user" },
+  { id: 2, text: "Hello! How can I help you today?", sender: "ai" },
+  { id: 3, text: "Tell me a joke.", sender: "user" },
+  {
+    id: 4,
+    text: "Why did the scarecrow win an award? Because he was outstanding in his field!",
+    sender: "ai",
+  },
+];
+
+export default function Conversation() {
   return (
-    <div>
-      <p
-        className={`text-center text-xl tracking-wide ${hasText ? "hidden" : ""}`}
-      >
-        Hello, what can I do for you today?
-      </p>
-      {hasText && (
-        <div className="space-y-3 ">
-          {Array.from({ length: 30 }, (_, index) => (
-            <p key={index}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex est
-              iure commodi placeat quam quidem dolore quia nisi sed. Recusandae
-              perferendis nesciunt ea sint eveniet dolorum iste vitae ad veniam!
-            </p>
-          ))}
+    <div className="mx-auto flex max-w-xl flex-col space-y-3 p-4">
+      {messages.map((msg) => (
+        <div
+          key={msg.id}
+          className={`flex ${msg.sender === "user" ? "justify-start" : "justify-end"} `}
+        >
+          <div
+            className={`max-w-[70%] rounded-2xl px-4 py-2 break-words ${msg.sender === "user" ? "rounded-bl-none bg-blue-500 text-white" : "rounded-br-none bg-gray-300 text-gray-900"} `}
+          >
+            {msg.text}
+          </div>
         </div>
-      )}
+      ))}
     </div>
   );
-};
-
-export default Conversation;
+}

@@ -1,5 +1,5 @@
 import { RiMenu3Line } from "react-icons/ri";
-import { UseMenuContext } from "../hooks/useMenuContext";
+import { UseMenuContext } from "../hooks/use-menu-context";
 
 const OpenSideContent = () => {
   const { openMenu, setOpenMenu } = UseMenuContext();

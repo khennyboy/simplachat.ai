@@ -2,7 +2,6 @@ import { useMutation } from "@tanstack/react-query";
 import { sendPromptToLlama } from "../services/question";
 
 const useQuestion = () => {
-  // const queryClient = useQueryClient();
   const {
     mutate: getAnswer,
     isPending,
@@ -10,7 +9,12 @@ const useQuestion = () => {
     error,
     data
   } = useMutation({
-    mutationFn: sendPromptToLlama,
+    mutationFn: () =>
+      new Promise((resolve) => {
+        setTimeout(() => {
+          resolve("life is good");
+        }, 2000);
+      }),
     onSuccess: () => {
       console.log('success')
     },

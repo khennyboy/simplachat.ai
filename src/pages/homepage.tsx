@@ -1,5 +1,6 @@
 import MainContent from "../ui/main-content";
 import OpenSideContent from "../ui/open-sideContent";
+import OverLay from "../ui/overlay";
 import SideContent from "../ui/side-content";
 
 const HomePage = () => {
@@ -8,7 +9,7 @@ const HomePage = () => {
       <OpenSideContent />
       <SideContent />
       <MainContent />
-      
+      <OverLay />
     </div>
   );
 };

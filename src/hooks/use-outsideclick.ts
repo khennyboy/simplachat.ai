@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { UseMenuContext } from "./useMenuContext";
+import { UseMenuContext } from "./use-menu-context";
 
 const UseOutsideClick = () => {
   const { openMenu, setOpenMenu } = UseMenuContext();

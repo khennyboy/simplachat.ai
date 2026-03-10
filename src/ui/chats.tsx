@@ -2,19 +2,20 @@ import { Menu, Portal } from "@chakra-ui/react";
 import { useState } from "react";
 import { IoEllipsisHorizontal } from "react-icons/io5";
 import { MdDeleteForever, MdOutlineEdit } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Chats = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <div className="px-2 pb-10">
-      {Array.from({ length: 20 }, (_, index) => {
+      {/* {Array.from({ length: 20 }, (_, index) => {
         const isOpen = openIndex === index;
 
         return (
-          <a
-            href="#"
-            className="group relative flex items-center gap-2 rounded-md px-2 py-2 transition-all duration-200 ease-linear"
+          <Link
+            to="/123"
+            className="group relative flex items-center justify-between gap-2 rounded-md px-2 py-2 transition-all duration-200 ease-linear"
             key={index}
           >
             <span className="overflow-hidden text-nowrap text-ellipsis">
@@ -62,9 +63,9 @@ const Chats = () => {
                 </Portal>
               </Menu.Root>
             </div>
-          </a>
+          </Link>
         );
-      })}
+      })}*/}
     </div>
   );
 };

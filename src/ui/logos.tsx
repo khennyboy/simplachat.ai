@@ -1,6 +1,7 @@
 import { IoAddCircleSharp } from "react-icons/io5";
 import { LuMessageCircleCode } from "react-icons/lu";
 import CloseMenu from "./close-sideContent";
+import { Link } from "react-router-dom";
 
 const Logos = () => {
   return (
@@ -12,13 +13,13 @@ const Logos = () => {
         </div>
         <CloseMenu />
       </div>
-      <a
-        href="#"
+      <Link
+        to="/"
         className="flex cursor-pointer items-center gap-2 rounded-lg border-2 border-gray-400 p-2"
       >
         <IoAddCircleSharp />
         <span>New Chat</span>
-      </a>
+      </Link>
       <h4>Conversations</h4>
     </div>
   );

@@ -8,6 +8,7 @@ import HomePage from "./pages/homepage";
 import MenuProvider from "./context/menu-provider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Provider } from "./components/ui/provider";
+import Conversation from "./ui/conversation";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,7 +21,9 @@ const queryClient = new QueryClient({
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<HomePage />}></Route>
+      <Route path="/" element={<HomePage />}>
+        <Route path=":conversationId" element={<Conversation />} />
+      </Route>
     </>,
   ),
 );
