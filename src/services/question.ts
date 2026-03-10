@@ -5,17 +5,21 @@ export async function sendPromptToLlama(prompt: string): Promise<string> {
   if (!HF_API_TOKEN) throw new Error("Missing HuggingFace API Token");
 
   const client = new InferenceClient(HF_API_TOKEN);
+  try {
+    const response = await client.chatCompletion({
+      model: "meta-llama/Llama-3.1-8B-Instruct:novita",
+      messages: [{ role: "user", content: prompt }],
+      max_tokens: 200,
+      temperature: 0.7,
+    });
 
-  const response = await client.chatCompletion({
-    model: "meta-llama/Llama-3.1-8B-Instruct:novita",
-    messages: [{ role: "user", content: prompt }],
-    max_tokens: 200,
-    temperature: 0.7,
-  });
+    if (!response?.choices?.[0]?.message?.content) {
+      return "No response generated.";
+    }
 
-  if (!response?.choices?.[0]?.message?.content) {
-    return "No response generated.";
+    return response.choices[0].message.content;
+  } catch (error) {
+    console.error(error, 'questio.ts file')
+    throw error
   }
-
-  return response.choices[0].message.content;
 }

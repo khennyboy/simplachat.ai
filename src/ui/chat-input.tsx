@@ -3,6 +3,7 @@ import { VscSend } from "react-icons/vsc";
 import TextareaAutosize from "react-textarea-autosize";
 import { UseMenuContext } from "../hooks/useMenuContext";
 import useQuestion from "../hooks/useQuestion";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 type TextFxn = {
   hasText?: boolean;
@@ -15,7 +16,8 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
   const divareaRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const [multiline, setMultiline] = useState<boolean | undefined>(false);
-  const { getAnswer, isPending, isError, error, data } = useQuestion();
+  const { isPending } = useQuestion();
+
   const { openMenu } = UseMenuContext();
 
   useEffect(() => {
@@ -54,10 +56,14 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
             }}
           />
           <button
-            disabled={!hasText}
+            onClick={() => {
+              // getAnswer(inputRef.current?.value || "");
+              console.log("hello");
+            }}
+            disabled={!hasText || isPending}
             className="bg-user-bubble flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full text-white transition hover:opacity-90 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
           >
-            <VscSend />
+            {!isPending ? <AiOutlineLoading3Quarters  className="animate-spin"/> : <VscSend />}
           </button>
         </div>
         <p className="mt-2 text-center">Simplechat-ai powered by chatGpt</p>

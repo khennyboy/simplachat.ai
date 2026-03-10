@@ -1,8 +1,8 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { sendPromptToLlama } from "../services/question";
 
 const useQuestion = () => {
-  const queryClient = useQueryClient();
+  // const queryClient = useQueryClient();
   const {
     mutate: getAnswer,
     isPending,
@@ -12,9 +12,7 @@ const useQuestion = () => {
   } = useMutation({
     mutationFn: sendPromptToLlama,
     onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ["questions"],
-      });
+      console.log('success')
     },
   });
   return { getAnswer, isPending, isError, error, data };

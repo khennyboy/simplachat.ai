@@ -8,6 +8,7 @@ const HomePage = () => {
       <OpenSideContent />
       <SideContent />
       <MainContent />
+      
     </div>
   );
 };
