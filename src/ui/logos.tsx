@@ -4,9 +4,9 @@ import CloseMenu from "./close-sideContent";
 
 const Logos = () => {
   return (
-    <div className="space-y-4 bg-inherit sticky top-0 z-50 p-4 ">
-      <div className="flex justify-between items-center">
-        <div className="flex items-center gap-1.5 ">
+    <div className="sticky top-0 z-50 space-y-4 bg-inherit px-2 py-4">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-1.5">
           <LuMessageCircleCode />
           <h3>simplechat.ai</h3>
         </div>
@@ -14,7 +14,7 @@ const Logos = () => {
       </div>
       <a
         href="#"
-        className="flex gap-2 items-center rounded-lg p-2 border-gray-400 border-2  cursor-pointer "
+        className="flex cursor-pointer items-center gap-2 rounded-lg border-2 border-gray-400 p-2"
       >
         <IoAddCircleSharp />
         <span>New Chat</span>

@@ -6,12 +6,12 @@ const ErrorFallback = ({
   resetErrorBoundary: () => void;
 }) => {
   return (
-    <div className="p-4 bg-red-100 text-red-800">
+    <div className="bg-red-100 p-4 text-red-800">
       <h2>Something went wrong!</h2>
       <p>{error.message}</p>
       <button
         onClick={resetErrorBoundary}
-        className="mt-2 px-3 py-1 bg-gray-200 rounded"
+        className="mt-2 rounded bg-gray-200 px-3 py-1"
       >
         Try again
       </button>

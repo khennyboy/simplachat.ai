@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@plugin 'tailwind-scrollbar';
+@plugin "tailwind-scrollbar";
 
 @theme {
   --color-main-sidebar: #121212;
@@ -16,13 +16,13 @@
 
 @layer base {
   svg {
-    @apply size-5 text-slate-300 cursor-pointer;
+    @apply size-5 text-slate-300;
   }
   body {
-    @apply text-gray-200 text-[14px] font-serif bg-active-convo;
+    @apply bg-active-convo font-serif text-gray-200;
   }
   html {
-    @apply scrollbar-track-chats scrollbar-thumb-gray-600  scroll-smooth scrollbar-thin ;
+    @apply scrollbar-track-chats scrollbar-thumb-gray-600 scrollbar-thin scroll-smooth;
   }
   a:active {
     @apply bg-chat-hover;

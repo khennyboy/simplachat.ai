@@ -6,7 +6,7 @@ const CloseMenu = () => {
   return (
     <IoCloseCircleOutline
       onClick={() => setOpenMenu(false)}
-      className="size-6"
+      className="size-6 cursor-pointer"
     />
   );
 };

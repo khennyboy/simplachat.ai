@@ -1,7 +1,8 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { VscSend } from "react-icons/vsc";
 import TextareaAutosize from "react-textarea-autosize";
 import { UseMenuContext } from "../hooks/useMenuContext";
+import useQuestion from "../hooks/useQuestion";
 
 type TextFxn = {
   hasText?: boolean;
@@ -12,35 +13,32 @@ type TextFxn = {
 const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
   const maindivRef = useRef<HTMLDivElement>(null);
   const divareaRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
   const [multiline, setMultiline] = useState<boolean | undefined>(false);
+  const { getAnswer, isPending, isError, error, data } = useQuestion();
   const { openMenu } = UseMenuContext();
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+
   return (
     <div
       ref={divareaRef}
-      className={`w-full  bg-active-convo left-0 bottom-0 pb-2 pt-4 ${hasText ? `fixed ${openMenu ? "max-md:pl-0 pl-60 md:pl-70" : ""}` : "static pl-0"} max-md:fixed }`}
+      className={`bg-active-convo bottom-0 left-0 w-full pt-4 pb-3 ${hasText ? `fixed ${openMenu ? "pl-60 max-md:pl-0 md:pl-70" : ""}` : "static pl-0"} } max-md:fixed`}
     >
-      <div className="max-w-2xl w-full mx-auto px-2 md:px-5">
+      <div className="mx-auto w-full max-w-2xl px-2 md:px-5">
         <div
           ref={maindivRef}
-          className={`flex items-center 
-              px-5 w-full
-              rounded-4xl  bg-chats
-              shadow-sm mx-auto
-              transition-all duration-200
-              
-               ${multiline ? "flex items-center flex-wrap justify-end gap-0 py-1" : "flex items-center justify-between gap-3"}`}
+          className={`bg-chats mx-auto flex w-full items-center rounded-4xl px-5 shadow-sm transition-all duration-200 ${multiline ? "flex flex-wrap items-center justify-end gap-0 py-1" : "flex items-center justify-between gap-3"}`}
         >
           <TextareaAutosize
+            ref={inputRef}
             name="question-box"
             maxRows={4}
-            className="
-                bg-transparent w-full
-                outline-none
-                resize-none
-                text-base py-4 break-all 
-                 placeholder:text-sm
-                placeholder:text-gray-400 scrollbar-thin scroll-smooth
-              "
+            className="scrollbar-thin w-full resize-none scroll-smooth bg-transparent py-4 text-base break-all outline-none placeholder:text-sm placeholder:text-gray-400"
             placeholder="Ask simplachat.ai anything"
             onChange={(e) => {
               const hasContent = e.target.value.trim().length > 0;
@@ -52,26 +50,17 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
               } else {
                 setMultiline(false);
                 setPaddingValue("0px");
-                console.log(hasContent);
               }
             }}
           />
           <button
-            className="
-                flex items-center justify-center 
-                h-10 w-10 shrink-0
-                rounded-full
-                bg-user-bubble
-                text-white
-                hover:opacity-90
-                active:scale-95
-                transition cursor-pointer
-              "
+            disabled={!hasText}
+            className="bg-user-bubble flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full text-white transition hover:opacity-90 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
           >
             <VscSend />
           </button>
         </div>
-        <p className="text-center mt-1">Simplechat-ai powered by chatGpt</p>
+        <p className="mt-2 text-center">Simplechat-ai powered by chatGpt</p>
       </div>
     </div>
   );

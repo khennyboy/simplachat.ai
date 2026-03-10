@@ -2,7 +2,7 @@ AI Chatbot Application
 📌 Overview
 
 This project is a simple AI-powered chatbot built with React.
-It allows users to create, manage, and store multiple conversations while interacting with the  AI.
+It allows users to create, manage, and store multiple conversations while interacting with the AI.
 
 The application demonstrates API integration, state management, local storage persistence, and responsive UI design.
 

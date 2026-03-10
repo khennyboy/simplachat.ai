@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
-import tsconfigPaths from "vite-tsconfig-paths"
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -11,9 +11,9 @@ export default defineConfig({
       "/hf": {
         target: "https://api-inference.huggingface.co",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/hf/, "")
-      }
+        rewrite: (path) => path.replace(/^\/hf/, ""),
+      },
     },
-    port: 3001
-  }
-})
+    port: 3001,
+  },
+});

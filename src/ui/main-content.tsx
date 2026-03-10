@@ -10,10 +10,10 @@ const MainContent = () => {
   const { openMenu } = UseMenuContext();
   return (
     <div
-      className={`px-5 max-md:px-2  ${openMenu ? "max-md:ml-0 ml-60 md:ml-70" : ""}`}
+      className={`px-5 max-md:px-2 ${openMenu ? "ml-60 max-md:ml-0 md:ml-70" : ""}`}
     >
       <div
-        className={`w-full md:max-w-2xl mx-auto ${hasText ? "pt-12 " : "h-dvh flex-col flex items-center justify-center pt-0 "}`}
+        className={`mx-auto w-full md:max-w-2xl ${hasText ? "pt-12" : "flex h-dvh flex-col items-center justify-center pt-0"}`}
         style={{ paddingBottom: padValue }}
       >
         <Conversation hasText={hasText} />
