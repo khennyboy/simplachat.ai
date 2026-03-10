@@ -61,9 +61,13 @@ const ChatInput = ({ setHasText, setPaddingValue, hasText }: TextFxn) => {
               console.log("hello");
             }}
             disabled={!hasText || isPending}
-            className="bg-user-bubble flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full text-white transition hover:opacity-90 active:scale-95 disabled:cursor-not-allowed disabled:opacity-50"
+            className={`bg-user-bubble flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full text-white transition hover:opacity-90 active:scale-95 disabled:cursor-not-allowed ${isPending ? "opacity-100" : "disabled:opacity-50"}`}
           >
-            {!isPending ? <AiOutlineLoading3Quarters  className="animate-spin"/> : <VscSend />}
+            {isPending ? (
+              <AiOutlineLoading3Quarters className="animate-spin" />
+            ) : (
+              <VscSend />
+            )}
           </button>
         </div>
         <p className="mt-2 text-center">Simplechat-ai powered by chatGpt</p>
