@@ -21,7 +21,7 @@ const queryClient = new QueryClient({
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<HomePage />}>
-      <Route path="/conversation/:conversationId" element={<Conversation />} />
+      <Route path="/c/:conversationId" element={<Conversation />} />
     </Route>,
   ),
 );
