@@ -1,22 +1,24 @@
-import { useParams } from "react-router-dom";
-
-type chat = {
+type Chat = {
     question: string;
-    answer: string
-}
-function AddChat(chat: chat) {
-    const { conversationId = '' } = useParams()
-    console.log(conversationId)
-    const conversation: chat[] = []
-    conversation.push(chat)
-    if (localStorage.conversationId) {
-        const existingConversation = JSON.parse(localStorage.getItem(conversationId) as string)
-        existingConversation.push(chat)
-        localStorage.setItem(conversationId, JSON.stringify(conversation))
-    }
-    else {
-        localStorage.setItem(conversationId, JSON.stringify(conversation))
-    }
+    answer: string;
+};
 
+function AddChat(conversationId: string, chat: Chat) {
+    console.log(conversationId);
+
+    const existingConversation = localStorage.getItem(conversationId);
+
+    if (existingConversation) {
+        const parsed = JSON.parse(existingConversation);
+        parsed.push(chat);
+
+        localStorage.setItem(conversationId, JSON.stringify(parsed));
+    } else {
+        const conversation: Chat[] = [];
+        conversation.push(chat);
+
+        localStorage.setItem(conversationId, JSON.stringify(conversation));
+    }
 }
-export default AddChat
+
+export default AddChat;
