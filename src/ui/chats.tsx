@@ -5,7 +5,7 @@ const Chats = () => {
 
   return (
     <div className="px-2 pb-10">
-      <Link to="/123">click me</Link>
+      <Link to="conversation/123">click me</Link>
       {/* {Array.from({ length: 20 }, (_, index) => {
         const isOpen = openIndex === index;
 
