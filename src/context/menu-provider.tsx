@@ -7,6 +7,9 @@ type MenuProviderProps = {
 
 const MenuProvider = ({ children }: MenuProviderProps) => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
+ 
+
+
 
   return (
     <MenuContext.Provider value={{ openMenu, setOpenMenu }}>
