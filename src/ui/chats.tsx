@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 
 const Chats = () => {
   // const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <div className="px-2 pb-10">
+      <Link to="/123">click me</Link>
       {/* {Array.from({ length: 20 }, (_, index) => {
         const isOpen = openIndex === index;
 

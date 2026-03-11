@@ -19,7 +19,7 @@ const MainContent = () => {
         {/* outlet where the main conversation is loaded into */}
         <Outlet />
         <p
-          className={`text-xl tracking-wide ${conversationId && (hasText || conversationId) ? "hidden" : "block"}`}
+          className={`md:text-xl text-center text-lg tracking-wide ${conversationId && (hasText || conversationId) ? "hidden" : "block"}`}
         >
           Hello, what can I do for you today?
         </p>

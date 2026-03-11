@@ -33,7 +33,7 @@ const ChatInput = ({ setHasText, hasText }: TextFxn) => {
       ref={divareaRef}
       className={`bg-active-convo bottom-0 left-0 w-full pt-4 pb-3 ${hasText || conversationId ? `fixed ${openMenu ? "pl-60 max-md:pl-0 md:pl-70" : ""}` : "static pl-0"} } max-md:fixed`}
     >
-      <div className="mx-auto w-full max-w-3xl px-2 md:px-5">
+      <div className="mx-auto w-full max-w-3xl px-1 md:px-5">
         <div
           ref={maindivRef}
           className={`bg-chats mx-auto flex w-full items-center rounded-4xl px-5 shadow-sm transition-all duration-200 ${multiline ? "flex flex-wrap items-center justify-end gap-0 py-1" : "flex items-center justify-between gap-3"}`}
@@ -74,7 +74,7 @@ const ChatInput = ({ setHasText, hasText }: TextFxn) => {
             )}
           </button>
         </div>
-        <p className="mt-2 text-center">Simplechat-ai powered by chatGpt</p>
+        <p className="mt-2 text-center max-md:text-xs">Simplechat-ai powered by chatGpt</p>
       </div>
     </div>
   );
