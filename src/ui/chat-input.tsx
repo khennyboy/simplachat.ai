@@ -7,17 +7,17 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useParams } from "react-router-dom";
 
 type TextFxn = {
-  hasText?: boolean;
+  hasText: boolean;
   setHasText: (value: boolean | ((prev: boolean) => boolean)) => void;
-  setPaddingValue?: (value: string | ((prev: string) => string)) => void;
+  setPaddingValue: (value: string | ((prev: string) => string)) => void;
 };
 
-const ChatInput = ({ setHasText, hasText }: TextFxn) => {
+const ChatInput = ({ setHasText, hasText, setPaddingValue }: TextFxn) => {
   const maindivRef = useRef<HTMLDivElement>(null);
-  const divareaRef = useRef<HTMLDivElement>(null);
+  const outerMostDiv = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
-  const [multiline, setMultiline] = useState<boolean | undefined>(false);
-  const { isPending, getAnswer } = useQuestion(inputRef);
+  const [multiline, setMultiline] = useState<boolean>(false);
+  const { isPending, getAnswer } = useQuestion(inputRef, setMultiline);
   const { conversationId } = useParams();
 
   const { openMenu } = UseMenuContext();
@@ -30,11 +30,11 @@ const ChatInput = ({ setHasText, hasText }: TextFxn) => {
 
   return (
     <div
-      ref={divareaRef}
+      ref={outerMostDiv}
       className={`bg-active-convo bottom-0 left-0 w-full pt-4 pb-3 ${hasText || conversationId ? `fixed ${openMenu ? "pl-60 max-md:pl-0 md:pl-70" : ""}` : "static pl-0"} } max-md:fixed`}
     >
       <div className="px-5 max-md:px-2">
-        <div className="mx-auto w-full max-w-3xl ">
+        <div className="mx-auto w-full max-w-3xl">
           <div
             ref={maindivRef}
             className={`bg-chats mx-auto flex w-full items-center rounded-4xl px-5 shadow-sm transition-all duration-200 ${multiline ? "flex flex-wrap items-center justify-end gap-0 py-1" : "flex items-center justify-between gap-3"}`}
@@ -49,13 +49,14 @@ const ChatInput = ({ setHasText, hasText }: TextFxn) => {
                 const hasContent = e.target.value.trim().length > 0;
                 setMultiline((maindivRef.current?.offsetHeight || 1) > 56);
                 setHasText(hasContent);
-                const height = divareaRef.current?.offsetHeight || 0;
-                console.log(height);
-                if (hasContent) {
-                  // setPaddingValue(height + 100 + "px");
+                const height = outerMostDiv.current?.offsetHeight || 0;
+                if (conversationId) {
+                  setPaddingValue(height + 200 + "px");
                 } else {
+                  setPaddingValue("0px");
+                }
+                if(!hasContent){
                   setMultiline(false);
-                  // setPaddingValue("0px");
                 }
               }}
             />
@@ -63,7 +64,6 @@ const ChatInput = ({ setHasText, hasText }: TextFxn) => {
               onClick={() => {
                 // getAnswer(inputRef.current?.value || "");
                 getAnswer();
-                console.log("hello");
               }}
               disabled={!hasText || isPending}
               className={`bg-user-bubble flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full text-white transition hover:opacity-90 active:scale-95 disabled:cursor-not-allowed ${isPending ? "opacity-100" : "disabled:opacity-50"}`}
