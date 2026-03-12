@@ -2,7 +2,7 @@ type Chat = {
     question: string;
     answer: string;
 };
-type Conversation = {
+export type Conversation = {
     title: string;
     chats: Chat[];
 }
@@ -21,7 +21,7 @@ function AddChat(conversationId: string, chat: Chat) {
             title: chats[0].question,
             chats: chats
         }
-        console.log("no")
+
         localStorage.setItem(conversationId, JSON.stringify(conversation));
     }
 }

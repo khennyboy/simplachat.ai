@@ -3,13 +3,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 import getConversationId from "./get-random-number";
 import AddChat from "./add-chat";
 import type { RefObject } from "react";
+import useTitles, { getTitle } from "./use-title";
 
 type TData = string;
 type setMultiline = (value: boolean | ((prev: boolean) => boolean)) => void;
 const useQuestion = (inputRef: RefObject<HTMLTextAreaElement | null>, setMultiline: setMultiline) => {
   const navigate = useNavigate();
   const location = useLocation();
-
+  const { setTitleData } = useTitles()
   const {
     mutate: getAnswer,
     isPending,
@@ -39,6 +40,7 @@ const useQuestion = (inputRef: RefObject<HTMLTextAreaElement | null>, setMultili
         question: "what is energy",
         answer: data,
       });
+      setTitleData(getTitle())
     },
 
     onSettled: () => {

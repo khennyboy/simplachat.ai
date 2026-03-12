@@ -1,23 +1,26 @@
+import { Menu, Portal } from "@chakra-ui/react";
 import { useState } from "react";
+import { IoEllipsisHorizontal } from "react-icons/io5";
+import { MdDeleteForever, MdOutlineEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
+import useTitles from "../hooks/use-title";
 
 const Chats = () => {
-  const [title, setTitle] = useState<number | null>(null);
+  const { titleData } = useTitles();
+  const [openIndex, setOpenIndex] = useState<number | null>();
 
   return (
     <div className="px-2 pb-10">
-     
-      {/* {Array.from({ length: 20 }, (_, index) => {
+      {titleData.map((each, index) => {
         const isOpen = openIndex === index;
-
         return (
           <Link
-            to="/123"
+            to={`/c/${each.conversationId}`}
             className="group relative flex items-center justify-between gap-2 rounded-md px-2 py-2 transition-all duration-200 ease-linear"
             key={index}
           >
             <span className="overflow-hidden text-nowrap text-ellipsis">
-              Lorem ipsum dolor sit amet. {index}
+              {each.title}
             </span>
 
             <div className="pl-6">
@@ -63,7 +66,7 @@ const Chats = () => {
             </div>
           </Link>
         );
-      })}*/}
+      })}
     </div>
   );
 };
