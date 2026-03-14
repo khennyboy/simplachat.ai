@@ -1,4 +1,4 @@
-type Chat = {
+export type Chat = {
     question: string;
     answer: string;
 };
@@ -10,7 +10,7 @@ export type Conversation = {
 function AddChat(conversationId: string, chat: Chat) {
 
     if (localStorage[conversationId]) {
-        const parsed = JSON.parse(localStorage.getItem(conversationId) as string);
+        const parsed: Conversation = JSON.parse(localStorage.getItem(conversationId) as string);
         parsed.chats.push(chat)
         localStorage.removeItem(conversationId)
         localStorage.setItem(conversationId, JSON.stringify(parsed));

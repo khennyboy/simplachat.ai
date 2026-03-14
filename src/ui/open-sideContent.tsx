@@ -1,8 +1,8 @@
 import { RiMenu3Line } from "react-icons/ri";
-import { UseMenuContext } from "../hooks/use-menu-context";
+import { useDataContext } from "../hooks/use-data-context";
 
 const OpenSideContent = () => {
-  const { openMenu, setOpenMenu } = UseMenuContext();
+  const { openMenu, setOpenMenu } = useDataContext();
   return (
     <div
       className={`fixed top-0 left-2 ${openMenu ? "hidden" : "visible"} bg-active-convo w-full cursor-pointer py-2`}

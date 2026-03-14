@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { MenuContext } from "../context/menu-context";
+import { DataContext } from "../context/data-context";
 
-export const UseMenuContext = () => {
-  const context = useContext(MenuContext);
+export const useDataContext = () => {
+  const context = useContext(DataContext);
   if (!context) {
     throw new Error("useMenu must be used inside MenuProvider");
   }

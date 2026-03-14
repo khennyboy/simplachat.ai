@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
-import { UseMenuContext } from "./use-menu-context";
+import { useDataContext } from "./use-data-context";
 
 const UseOutsideClick = () => {
-  const { openMenu, setOpenMenu } = UseMenuContext();
+  const { openMenu, setOpenMenu } = useDataContext();
   const sideRef = useRef<HTMLElement>(null);
   useEffect(() => {
     function handleClick(e: MouseEvent) {

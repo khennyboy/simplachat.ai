@@ -3,7 +3,7 @@ export type titleData = {
     title: string;
     conversationId: string
 }
-export function getTitle() {
+export function getTitleData() {
     const arr: titleData[] = []
     for (let index = 0; index < localStorage.length; index++) {
         const key = localStorage.key(index);
@@ -19,14 +19,8 @@ export function getTitle() {
         }
     }
 
-    return arr
+    return arr.reverse()
 }
 
-import { useState } from "react";
 
 
-export default function useTitles() {
-    const [titleData, setTitleData] = useState<titleData[]>(getTitle());
-
-    return { titleData, setTitleData };
-}

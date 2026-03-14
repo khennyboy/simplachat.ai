@@ -1,59 +1,59 @@
-type Message = {
-  id: number;
-  text: string;
-  sender: "user" | "ai";
-};
-
-const messages: Message[] = [
-  { id: 1, text: "Hi there!", sender: "user" },
-  { id: 2, text: "Hello! How can I help you today?", sender: "ai" },
-  { id: 3, text: "Tell me a joke.", sender: "user" },
-  {
-    id: 4,
-    text: "Why did the scarecrow win an award? Because he was outstanding in his field!",
-    sender: "ai",
-  },
-  { id: 5, text: "Hi there!", sender: "user" },
-  { id: 6, text: "Hello! How can I help you today?", sender: "ai" },
-  { id: 7, text: "Tell me a joke.", sender: "user" },
-  {
-    id: 8,
-    text: "Why did the scarecrow win an award? Because he was outstanding in his field!",
-    sender: "ai",
-  },
-    { id: 1, text: "Hi there!", sender: "user" },
-  { id: 2, text: "Hello! How can I help you today?", sender: "ai" },
-  { id: 3, text: "Tell me a joke.", sender: "user" },
-  {
-    id: 4,
-    text: "Why did the scarecrow win an award? Because he was outstanding in his field!",
-    sender: "ai",
-  },
-  { id: 5, text: "Hi there!", sender: "user" },
-  { id: 6, text: "Hello! How can I help you today?", sender: "ai" },
-  { id: 7, text: "Tell me a joke.", sender: "user" },
-  {
-    id: 8,
-    text: "Why did the scarecrow win an award? Because he was outstanding in his field!",
-    sender: "ai",
-  },
-];
+import { useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
+import { getCurrentConversation } from "../hooks/get-current-conversation";
+import { useDataContext } from "../hooks/use-data-context";
 
 export default function Conversation() {
+  const { currentConversation = [], setCurrentConversation } = useDataContext();
+  const { conversationId } = useParams();
+  const lastMessageRef = useRef<HTMLDivElement | null>(null);
+
+  // Load conversation when ID changes
+  useEffect(() => {
+    setCurrentConversation(getCurrentConversation(conversationId));
+  }, [conversationId, setCurrentConversation]);
+
+  // Scroll to last message whenever conversation updates
+  useEffect(() => {
+    if (lastMessageRef.current) {
+      lastMessageRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [currentConversation]);
+
+  if (!currentConversation || currentConversation.length === 0) {
+    return (
+      <div className="flex items-center justify-center py-6 text-lg italic">
+        No conversation found for this ID.
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col space-y-3">
-      {messages.map((msg) => (
-        <div
-          key={msg.id}
-          className={`flex ${msg.sender === "user" ? "justify-start" : "justify-end"} `}
-        >
+      {currentConversation.map((msg, index) => {
+        const isLast = index === currentConversation.length - 1;
+        return (
           <div
-            className={`w-[90%] max-w-fit rounded-2xl px-4 py-2 wrap-break-word ${msg.sender === "user" ? "rounded-bl-none bg-blue-500 text-white" : "rounded-br-none bg-gray-300 text-gray-900"} `}
+            key={index}
+            ref={isLast ? lastMessageRef : null} 
+            className="flex flex-col space-y-3"
           >
-            {msg.text}
+            {/* User question */}
+            <div className="flex justify-end">
+              <div className="w-fit max-w-[80%] rounded-2xl rounded-bl-none bg-blue-500 px-4 py-2 wrap-break-word text-white">
+                {msg.question}
+              </div>
+            </div>
+
+            {/* Bot answer */}
+            <div className="flex justify-start">
+              <div className="w-fit max-w-[80%] rounded-2xl rounded-br-none bg-gray-300 px-4 py-2 wrap-break-word text-gray-900">
+                {msg.answer}
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

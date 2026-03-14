@@ -1,31 +1,39 @@
 import { useMutation } from "@tanstack/react-query";
-import { useLocation, useNavigate } from "react-router-dom";
-import getConversationId from "./get-random-number";
-import AddChat from "./add-chat";
 import type { RefObject } from "react";
-import useTitles, { getTitle } from "./use-title";
+import { useLocation, useNavigate } from "react-router-dom";
+import AddChat from "./add-chat";
+import getConversationId from "./get-random-number";
+import { getTitleData } from "./get-title-data";
+import { useDataContext } from "./use-data-context";
+import { getCurrentConversation } from "./get-current-conversation";
 
-type TData = string;
-type setMultiline = (value: boolean | ((prev: boolean) => boolean)) => void;
-const useQuestion = (inputRef: RefObject<HTMLTextAreaElement | null>, setMultiline: setMultiline) => {
+
+type useQuestionData = {
+  inputRef: RefObject<HTMLTextAreaElement | null>;
+  setMultiline: (value: boolean | ((prev: boolean) => boolean)) => void;
+  setHasText: (value: boolean | ((prev: boolean) => boolean)) => void;
+}
+
+
+const useQuestion = ({ inputRef, setMultiline, setHasText }: useQuestionData) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { setTitleData } = useTitles()
+  const { setTitleDatas, setCurrentConversation } = useDataContext()
   const {
     mutate: getAnswer,
     isPending,
     isError,
     error,
     data,
-  } = useMutation<TData>({
+  } = useMutation<string, Error, string>({
     mutationFn: () =>
-      new Promise((resolve) => {
+      new Promise((_, reject) => {
         setTimeout(() => {
-          resolve("life is good");
+          reject("Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, doloribus eligendi reiciendis, reprehenderit esse fugit cupiditate non eos similique nemo sint laudantium ratione porro culpa sit, repellendus molestiae ex provident!");
         }, 2000);
       }),
 
-    onSuccess: (data) => {
+    onSuccess: (data, question) => {
       let conversationId;
 
       if (!location.pathname.includes("/c/")) {
@@ -37,16 +45,19 @@ const useQuestion = (inputRef: RefObject<HTMLTextAreaElement | null>, setMultili
       }
 
       AddChat(conversationId, {
-        question: "what is energy",
+        question,
         answer: data,
       });
-      setTitleData(getTitle())
+
+      setTitleDatas(getTitleData())
+      setCurrentConversation(getCurrentConversation(conversationId))
     },
 
     onSettled: () => {
       if (inputRef.current) {
         inputRef.current.value = "";
         setMultiline(false)
+        setHasText(false)
       }
     },
   });

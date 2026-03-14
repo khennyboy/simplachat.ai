@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import { UseMenuContext } from "../hooks/use-menu-context";
-import UseOutsideClick from "../hooks/use-outsideclick";
 import { useLocation } from "react-router-dom";
+import { useDataContext } from "../hooks/use-data-context";
+import UseOutsideClick from "../hooks/use-outsideclick";
 import Chat from "./chats";
 import Logos from "./logos";
 
 const SideContent = () => {
-  const { openMenu, setOpenMenu } = UseMenuContext();
+  const { openMenu, setOpenMenu } = useDataContext();
   const sideRef = UseOutsideClick();
   const location = useLocation();
 
