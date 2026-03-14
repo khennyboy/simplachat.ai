@@ -24,9 +24,12 @@ const ChatInput = ({ setPaddingValue }: TextFxn) => {
   });
   const { conversationId } = useParams();
   const { openMenu } = useDataContext();
-  if (isError) {
-    toast.error("Error generating response, Please try again!");
-  }
+  useEffect(() => {
+    if (isError) {
+      toast.error("Error generating response, Please try again!");
+    }
+  }, [isError]);
+  
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();
