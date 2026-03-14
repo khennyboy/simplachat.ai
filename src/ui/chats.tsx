@@ -34,25 +34,27 @@ const Chats = () => {
               open={isOpen}
               onOpenChange={(e) => setOpenIndex(e.open ? index : null)}
             >
-              <Menu.Trigger >
-                <button
-                  type="button"
-                  className="cursor-pointer p-1 opacity-0 group-hover:opacity-100"
-                  onClick={(e) => {
-                    // e.preventDefault(); 
-                    console.log("a")
-                    e.stopPropagation(); 
-                  }}
-                >
-                  <IoEllipsisHorizontal />
-                </button>
+              <Menu.Trigger>
+                <Menu.Trigger>
+                  <button
+                    type="button"
+                    className={`cursor-pointer pl-2 opacity-0 outline-none group-hover:opacity-100 [@media(hover:none)]:opacity-100 ${openIndex == index ? "opacity-100" : "opacity-0"}`}
+                    onClick={(e) => {
+                      e.preventDefault(); 
+                      e.stopPropagation(); 
+                      setOpenIndex(index); 
+                    }}
+                  >
+                    <IoEllipsisHorizontal />
+                  </button>
+                </Menu.Trigger>
               </Menu.Trigger>
 
               <Portal>
                 <Menu.Positioner>
                   <Menu.Content
                     unstyled
-                    className="bg-black z-50 w-28 rounded-md px-1 py-1 shadow-xl outline-none *:hover:rounded-md *:hover:bg-[#303030]"
+                    className="z-50 w-28 rounded-md bg-black px-1 py-2 shadow-xl outline-none *:hover:rounded-md *:hover:bg-[#303030]"
                   >
                     <Menu.Item
                       value="edit-btn"
