@@ -30,5 +30,11 @@
   a {
     @apply hover:bg-chat-hover;
   }
-  
+
+  @media (max-width: 300px) {
+    .custom-toast-container {
+      right: 0px !important;
+      width: 100% !important;
+    }
+  }
 }

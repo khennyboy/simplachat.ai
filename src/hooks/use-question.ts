@@ -56,6 +56,7 @@ const useQuestion = ({ inputRef, setMultiline, setHasText }: useQuestionData) =>
     onSettled: () => {
       if (inputRef.current) {
         inputRef.current.value = "";
+        inputRef.current?.focus();
         setMultiline(false)
         setHasText(false)
       }

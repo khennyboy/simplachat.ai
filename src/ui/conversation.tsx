@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getCurrentConversation } from "../hooks/get-current-conversation";
 import { useDataContext } from "../hooks/use-data-context";
@@ -6,19 +6,11 @@ import { useDataContext } from "../hooks/use-data-context";
 export default function Conversation() {
   const { currentConversation = [], setCurrentConversation } = useDataContext();
   const { conversationId } = useParams();
-  const lastMessageRef = useRef<HTMLDivElement | null>(null);
 
   // Load conversation when ID changes
   useEffect(() => {
     setCurrentConversation(getCurrentConversation(conversationId));
   }, [conversationId, setCurrentConversation]);
-
-  // Scroll to last message whenever conversation updates
-  useEffect(() => {
-    if (lastMessageRef.current) {
-      lastMessageRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }, [currentConversation]);
 
   if (!currentConversation || currentConversation.length === 0) {
     return (
@@ -31,13 +23,8 @@ export default function Conversation() {
   return (
     <div className="flex flex-col space-y-3">
       {currentConversation.map((msg, index) => {
-        const isLast = index === currentConversation.length - 1;
         return (
-          <div
-            key={index}
-            ref={isLast ? lastMessageRef : null} 
-            className="flex flex-col space-y-3"
-          >
+          <div key={index} className="flex flex-col space-y-3">
             {/* User question */}
             <div className="flex justify-end">
               <div className="w-fit max-w-[80%] rounded-2xl rounded-bl-none bg-blue-500 px-4 py-2 wrap-break-word text-white">

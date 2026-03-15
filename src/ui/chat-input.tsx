@@ -29,7 +29,7 @@ const ChatInput = ({ setPaddingValue }: TextFxn) => {
       toast.error("Error generating response, Please try again!");
     }
   }, [isError]);
-  
+
   useEffect(() => {
     if (inputRef.current) {
       inputRef.current.focus();

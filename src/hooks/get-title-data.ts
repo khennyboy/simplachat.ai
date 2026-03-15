@@ -1,7 +1,9 @@
+import type { Conversation } from "./add-chat";
 
 export type titleData = {
     title: string;
     conversationId: string
+    createdAt: number
 }
 export function getTitleData() {
     const arr: titleData[] = []
@@ -10,16 +12,17 @@ export function getTitleData() {
         if (key) {
             const value = localStorage.getItem(key);
             if (value) {
-                const parsed = JSON.parse(value);
+                const parsed = JSON.parse(value) as Conversation;
                 arr.push({
                     title: parsed.title,
-                    conversationId: key
+                    conversationId: key,
+                    createdAt: parsed.createdAt
                 })
             }
         }
     }
 
-    return arr.reverse()
+    return arr.sort((a, b) => b.createdAt - a.createdAt);
 }
 
 

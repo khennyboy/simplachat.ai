@@ -52,7 +52,7 @@ function App() {
                 maxWidth: "400px",
                 minWidth: "300px",
                 borderRadius: "12px",
-                right: "20px",
+                right: "0px",
                 top: "20px",
               }}
             />
