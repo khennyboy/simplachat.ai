@@ -27,9 +27,9 @@ const useQuestion = ({ inputRef, setMultiline, setHasText }: useQuestionData) =>
     data,
   } = useMutation<string, Error, string>({
     mutationFn: () =>
-      new Promise((_, reject) => {
+      new Promise((resolve) => {
         setTimeout(() => {
-          reject("Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, doloribus eligendi reiciendis, reprehenderit esse fugit cupiditate non eos similique nemo sint laudantium ratione porro culpa sit, repellendus molestiae ex provident!");
+          resolve("Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, doloribus eligendi reiciendis, reprehenderit esse fugit cupiditate non eos similique nemo sint laudantium ratione porro culpa sit, repellendus molestiae ex provident!");
         }, 2000);
       }),
 
