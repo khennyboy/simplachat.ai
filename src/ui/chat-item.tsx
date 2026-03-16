@@ -87,7 +87,7 @@ const ChatItem = memo(
           <Menu.Trigger asChild>
             <button
               type="button"
-              className={`flex cursor-pointer items-center pl-2 opacity-0 outline-none group-hover:opacity-100 ${
+              className={`flex cursor-pointer items-center pl-2 opacity-0 outline-none group-hover:opacity-100 [@media(hover:none)]:opacity-100 ${
                 isOpen ? "opacity-100" : "opacity-0"
               }`}
               onClick={(e) => {
