@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { useDataContext } from "../hooks/use-data-context";
 import UseOutsideClick from "../hooks/use-outsideclick";
 import Chat from "./chats";
@@ -8,7 +7,7 @@ import Logos from "./logos";
 const SideContent = () => {
   const { openMenu, setOpenMenu } = useDataContext();
   const sideRef = UseOutsideClick();
-  const location = useLocation();
+
 
   // open menu by default on desktop
   useEffect(() => {
@@ -22,7 +21,7 @@ const SideContent = () => {
     if (window.innerWidth <= 768) {
       setOpenMenu(false);
     }
-  }, [location.pathname, setOpenMenu]);
+  }, [setOpenMenu]);
 
   return (
     <aside

@@ -6,6 +6,7 @@ import getConversationId from "./get-random-number";
 import { getTitleData } from "./get-title-data";
 import { useDataContext } from "./use-data-context";
 import { getCurrentConversation } from "./get-current-conversation";
+import { sendPromptToLlama } from "../services/question";
 
 
 type useQuestionData = {
@@ -26,12 +27,12 @@ const useQuestion = ({ inputRef, setMultiline, setHasText }: useQuestionData) =>
     error,
     data,
   } = useMutation<string, Error, string>({
-    mutationFn: () =>
-      new Promise((resolve) => {
-        setTimeout(() => {
-          resolve("Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, doloribus eligendi reiciendis, reprehenderit esse fugit cupiditate non eos similique nemo sint laudantium ratione porro culpa sit, repellendus molestiae ex provident!");
-        }, 2000);
-      }),
+    mutationFn: sendPromptToLlama,
+    // new Promise((resolve) => {
+    //   setTimeout(() => {
+    //     resolve("Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti, doloribus eligendi reiciendis, reprehenderit esse fugit cupiditate non eos similique nemo sint laudantium ratione porro culpa sit, repellendus molestiae ex provident!");
+    //   }, 2000);
+    // }),
 
     onSuccess: (data, question) => {
       let conversationId;

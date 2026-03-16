@@ -68,10 +68,10 @@ const ChatInput = ({ setPaddingValue }: TextFxn) => {
                   setMultiline(false);
                 }
               }}
+             
             />
             <button
               onClick={() => {
-                // getAnswer(inputRef.current?.value || "");
                 getAnswer(inputRef.current?.value || "");
               }}
               disabled={!hasText || isPending}
@@ -85,7 +85,7 @@ const ChatInput = ({ setPaddingValue }: TextFxn) => {
             </button>
           </div>
           <p className="mt-2 text-center max-md:text-xs">
-            Simplechat-ai powered by chatGpt
+            Simplechat-ai powered by hugging-face api
           </p>
         </div>
       </div>
