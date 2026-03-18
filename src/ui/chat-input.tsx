@@ -39,7 +39,7 @@ const ChatInput = ({ setPaddingValue }: TextFxn) => {
   return (
     <div
       ref={outerMostDiv}
-      className={`bg-active-convo bottom-0 left-0 w-full pt-4 pb-3 ${conversationId ? `fixed ${openMenu ? "pl-60 max-md:pl-0 md:pl-70" : ""}` : "static pl-0"} } max-md:fixed`}
+      className={`bg-active-convo bottom-0 left-0 w-full pt-4 pb-3 ${conversationId ? `fixed ${openMenu ? "pl-70 max-md:pl-0 md:pl-75" : ""}` : "static pl-0"} } max-md:fixed`}
     >
       <div className="px-5 max-md:px-2">
         <div className="mx-auto w-full max-w-3xl">

@@ -13,7 +13,7 @@ const MainContent = () => {
 
   return (
     <div
-      className={`px-5 max-md:px-2 ${openMenu ? "ml-60 max-md:ml-0 md:ml-70" : ""}`}
+      className={`px-5  max-md:px-2 ${openMenu ? "ml-700 max-md:ml-0 md:ml-75" : ""}`}
     >
       <div
         className={`mx-auto w-full md:max-w-3xl ${conversationId ? "min-h-dvh pt-14" : "flex h-dvh flex-col items-center justify-center pt-0"}`}
